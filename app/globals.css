@@ -11,6 +11,12 @@
   --rating: #ffc531;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -22,6 +28,16 @@ body {
   font-family: var(--font-inter), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }
 
 ul {
@@ -37,10 +53,11 @@ a {
 
 button {
   cursor: pointer;
+  border: none;
 }
 
-.container {
+/* .container {
   width: 1440px;
   margin: 0 auto;
   padding: 0 64px;
-}
+} */
