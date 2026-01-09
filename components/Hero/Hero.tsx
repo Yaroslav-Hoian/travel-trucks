@@ -1,3 +1,4 @@
+import Link from "next/link";
 import css from "./Hero.module.css";
 
 const Hero = () => {
@@ -10,7 +11,9 @@ const Hero = () => {
             You can find everything you want in our catalog
           </p>
         </div>
-        <button className={css.heroBtn}>View Now</button>
+        <Link href="/catalog">
+          <button className={css.heroBtn}>View Now</button>
+        </Link>
       </div>
     </section>
   );

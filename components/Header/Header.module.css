@@ -1,10 +1,14 @@
 .header {
+  background: var(--inputs);
+}
+
+.headerContainer {
   width: 1440px;
   margin: 0 auto;
   padding: 0 64px;
 }
 
-.headerContainer {
+.headerSubContainer {
   display: flex;
   align-items: center;
   justify-content: center;
