@@ -12,6 +12,7 @@
   background-color: var(--badges);
   border-radius: 100px;
   padding: 12px 18px;
+  mix-blend-mode: multiply;
 }
 
 .equipmentContent {

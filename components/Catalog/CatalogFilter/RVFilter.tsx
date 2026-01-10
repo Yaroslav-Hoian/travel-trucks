@@ -1,6 +1,6 @@
 "use client";
 
-import css from "./SidebarForm.module.css";
+import css from "./RVFilter.module.css";
 
 import { useState } from "react";
 import RVFilterLocation from "@/components/Catalog/CatalogFilter/RVFilterLocation/RVFilterLocation";
@@ -19,7 +19,7 @@ interface EquipmentFilters {
   microwave?: boolean;
 }
 
-const CatalogSidebar = () => {
+const CatalogFilter = () => {
   const setFilters = useRVDraftStore((state) => state.setFilters);
 
   const [location, setLocation] = useState<string>("");
@@ -130,4 +130,4 @@ const CatalogSidebar = () => {
   );
 };
 
-export default CatalogSidebar;
+export default CatalogFilter;

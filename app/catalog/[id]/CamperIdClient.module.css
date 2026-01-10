@@ -1,0 +1,42 @@
+.camperIdClientContainer {
+  width: 1440px;
+  padding: 48px 64px 80px 64px;
+  margin: 0 auto;
+}
+
+.camperIdClientInfoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 50px;
+}
+
+.camperIdToggleBox {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.camperIdToggle {
+  display: flex;
+  gap: 40px;
+}
+
+.camperIdToggleLine {
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.camperToggleBtn {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  background: none;
+  cursor: pointer;
+  padding: 10px 0 10px 0;
+}
+
+.camperIdToggleBookingContent {
+  display: flex;
+  padding-top: 44px;
+  gap: 40px;
+}

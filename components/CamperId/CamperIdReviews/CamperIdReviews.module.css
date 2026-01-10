@@ -1,0 +1,40 @@
+.reviews {
+  display: flex;
+  gap: 44px;
+  flex-direction: column;
+}
+
+.reviewItem {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.reviewItemHeader {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: var(--badges);
+}
+
+.reviewerInfo {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.reviewName {
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.reviewItemText {
+  line-height: 1.5;
+  color: var(--text);
+}

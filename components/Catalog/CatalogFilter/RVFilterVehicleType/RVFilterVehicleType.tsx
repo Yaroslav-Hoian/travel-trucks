@@ -1,7 +1,7 @@
-import Icon from "@/components/icons/Icon";
 import css from "../RVFilterEquipments/RVFilterEquipments.module.css";
 import clsx from "clsx";
 import { RVForm } from "@/types/RV";
+import IconJust from "@/components/icons/IconJust";
 
 interface RVFilterVehicleTypeProps {
   label: string;
@@ -26,7 +26,7 @@ const RVFilterVehicleType = ({
       onClick={() => onSelect(value)}
       aria-pressed={isActive}
     >
-      <Icon width={32} height={32} icon={icon} />
+      <IconJust width={32} height={32} icon={icon} />
       <p className={css.text}>{label}</p>
     </button>
   );

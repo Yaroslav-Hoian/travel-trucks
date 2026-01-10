@@ -27,7 +27,7 @@ const RVItem = ({ rv }: RVItemProps) => {
         <RVItemDescription rv={rv} />
         <RVItemEquipments rv={rv} />
         <button className={css.rvItemBtn}>
-          <Link href={`/campers/${rv.id}`}>Show more</Link>
+          <Link href={`/catalog/${rv.id}`}>Show more</Link>
         </button>
       </div>
     </li>
