@@ -12,9 +12,9 @@ const NotFound = () => {
     return () => clearTimeout(timer);
   }, [router]);
   return (
-    <div>
-      <h1 className={css.title}>404 - Page not found</h1>
-      <p className={css.description}>
+    <div className={css.notFoundContainer}>
+      <h1 className={css.notFoundTitle}>404 - Page not found</h1>
+      <p className={css.notFoundDescription}>
         Sorry, the page you are looking for does not exist.
       </p>
     </div>

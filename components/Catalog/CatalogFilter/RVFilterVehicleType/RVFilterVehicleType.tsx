@@ -1,5 +1,5 @@
 import Icon from "@/components/icons/Icon";
-import css from "./RVFilterVehicleType.module.css";
+import css from "../RVFilterEquipments/RVFilterEquipments.module.css";
 import clsx from "clsx";
 import { RVForm } from "@/types/RV";
 
@@ -22,12 +22,12 @@ const RVFilterVehicleType = ({
   return (
     <button
       type="button"
-      className={clsx(css.radio, isActive && css.active)}
+      className={clsx(css.btn, isActive && css.active)}
       onClick={() => onSelect(value)}
       aria-pressed={isActive}
     >
       <Icon width={32} height={32} icon={icon} />
-      <span>{label}</span>
+      <p className={css.text}>{label}</p>
     </button>
   );
 };

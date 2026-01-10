@@ -1,4 +1,4 @@
-.btn {
+.loadMoreBtn {
   display: flex;
   gap: 8px;
   flex-direction: column;
@@ -11,13 +11,7 @@
   border-radius: 12px;
 }
 
-.active {
+.loadMoreBtn:hover,
+.loadMoreBtn:focus {
   border-color: var(--button);
-}
-
-.text {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
 }

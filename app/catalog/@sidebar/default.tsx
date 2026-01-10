@@ -50,7 +50,7 @@ const CatalogSidebar = () => {
         <div className={css.filterSection}>
           <h4 className={css.filtersSectionTitle}>Vehicle equipment</h4>
           <span className={css.filtersSectionLine}></span>
-          <div>
+          <div className={css.filterSectionWrapper}>
             <RVFilterEquipment
               label="AC"
               icon="AC"
@@ -58,13 +58,13 @@ const CatalogSidebar = () => {
               onChange={() => toggleFilter("AC")}
             />
             <RVFilterEquipment
-              label="kitchen"
+              label="Kitchen"
               icon="Kitchen"
               checked={!!filters.kitchen}
               onChange={() => toggleFilter("kitchen")}
             />
             <RVFilterEquipment
-              label="bathroom"
+              label="Bathroom"
               icon="Bathroom"
               checked={!!filters.bathroom}
               onChange={() => toggleFilter("bathroom")}
@@ -76,29 +76,29 @@ const CatalogSidebar = () => {
               onChange={() => toggleFilter("TV")}
             />
             <RVFilterEquipment
-              label="radio"
+              label="Radio"
               icon="Radio"
               checked={!!filters.radio}
               onChange={() => toggleFilter("radio")}
             />
             <RVFilterEquipment
-              label="refrigerator"
+              label="Refrigerator"
               icon="Refrigerator"
               checked={!!filters.refrigerator}
               onChange={() => toggleFilter("refrigerator")}
             />
             <RVFilterEquipment
-              label="microwave"
+              label="Microwave"
               icon="Microwave"
               checked={!!filters.microwave}
               onChange={() => toggleFilter("microwave")}
             />
           </div>
         </div>
-        <div  className={css.filterSection}>
-          <h4  className={css.filtersSectionTitle}>Vehicle type</h4>
+        <div className={css.filterSection}>
+          <h4 className={css.filtersSectionTitle}>Vehicle type</h4>
           <span className={css.filtersSectionLine}></span>
-          <div>
+          <div className={css.filterSectionWrapper}>
             <RVFilterVehicleType
               label="Van"
               icon="Van"
@@ -123,7 +123,9 @@ const CatalogSidebar = () => {
           </div>
         </div>
       </div>
-      <button type="submit">Search</button>
+      <button className={css.searchBtn} type="submit">
+        Search
+      </button>
     </form>
   );
 };

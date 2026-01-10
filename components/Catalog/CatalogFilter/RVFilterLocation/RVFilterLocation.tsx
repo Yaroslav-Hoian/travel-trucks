@@ -8,10 +8,14 @@ interface RVFilterLocationProps {
 
 const RVFilterLocation = ({ location, setLocation }: RVFilterLocationProps) => {
   return (
-    <label className={css.locationLabel}>
-      <p className={css.locationTitle}>Location</p>
+    <div className={css.locationContainer}>
+      <label htmlFor="location" className={css.locationLabel}>
+        Location
+      </label>
       <div className={css.locationInputContainer}>
         <input
+          id="location"
+          name="location"
           className={css.locationInput}
           type="text"
           value={location}
@@ -27,7 +31,7 @@ const RVFilterLocation = ({ location, setLocation }: RVFilterLocationProps) => {
           className={css.locationIcon}
         />
       </div>
-    </label>
+    </div>
   );
 };
 

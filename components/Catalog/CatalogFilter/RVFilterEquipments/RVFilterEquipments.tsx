@@ -1,6 +1,6 @@
-import Icon from "@/components/icons/Icon";
 import css from "./RVFilterEquipments.module.css";
 import clsx from "clsx";
+import IconJust from "@/components/icons/IconJust";
 
 interface RVFilterEquipmentsProps {
   label: string;
@@ -18,12 +18,12 @@ const RVFilterEquipment = ({
   return (
     <button
       type="button"
-      className={clsx(css.checkBox, checked && css.active)}
+      className={clsx(css.btn, checked && css.active)}
       onClick={onChange}
       aria-pressed={checked}
     >
-      <Icon width={32} height={32} icon={icon} />
-      <span>{label}</span>
+      <IconJust width={32} height={32} icon={icon} />
+      <p className={css.text}>{label}</p>
     </button>
   );
 };

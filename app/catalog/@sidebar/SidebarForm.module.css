@@ -31,3 +31,27 @@
 .filtersSectionLine {
   border: 1px solid var(--gray-light);
 }
+
+.filterSectionWrapper {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.searchBtn {
+  max-width: 166px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  border-radius: 200px;
+  background-color: var(--button);
+  padding: 16px 57px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.searchBtn:hover,
+.searchBtn:focus {
+  background-color: var(--button-hover);
+}
