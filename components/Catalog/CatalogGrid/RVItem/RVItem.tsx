@@ -13,18 +13,20 @@ export interface RVItemProps {
 const RVItem = ({ rv }: RVItemProps) => {
   return (
     <li className={css.rvItem}>
-      <Image
-        src={rv.gallery[0].thumb}
-        alt={rv.name}
-        className={css.rvImage}
-        width={292}
-        height={320}
-      />
+      <div className={css.rvImageWrapper}>
+        <Image
+          src={rv.gallery[0].thumb}
+          alt={rv.name}
+          className={css.rvImage}
+          width={292}
+          height={320}
+        />
+      </div>
       <div className={css.rvInfo}>
         <RVItemHeader rv={rv} />
         <RVItemDescription rv={rv} />
         <RVItemEquipments rv={rv} />
-        <button>
+        <button className={css.rvItemBtn}>
           <Link href={`/campers/${rv.id}`}>Show more</Link>
         </button>
       </div>

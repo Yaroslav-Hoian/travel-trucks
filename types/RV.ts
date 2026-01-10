@@ -57,4 +57,5 @@ export interface IconProps {
   width: number;
   height: number;
   icon: string;
+  className?: string;
 }

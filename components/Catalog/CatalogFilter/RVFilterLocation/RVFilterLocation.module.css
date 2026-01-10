@@ -1,0 +1,40 @@
+.locationLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.locationTitle {
+  line-height: 1.5;
+  color: var(--gray);
+}
+
+.locationInputContainer {
+  position: relative;
+}
+
+.locationInput {
+  line-height: 1.5;
+  color: var(--main);
+  background-color: var(--inputs);
+  border: none;
+  border-radius: 12px;
+  padding: 18px 18px 18px 46px;
+  min-width: 360px;
+  outline: none;
+}
+
+.locationInput::placeholder {
+  color: var(--gray);
+}
+
+.locationIcon {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+}
+
+.locationInputContainer:focus-within .locationIcon use {
+  stroke: var(--gray);
+}

@@ -1,5 +1,7 @@
 "use client";
 
+import css from "./SidebarForm.module.css";
+
 import { useState } from "react";
 import RVFilterLocation from "@/components/Catalog/CatalogFilter/RVFilterLocation/RVFilterLocation";
 import RVFilterEquipment from "@/components/Catalog/CatalogFilter/RVFilterEquipments/RVFilterEquipments";
@@ -41,13 +43,13 @@ const CatalogSidebar = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={css.sidebarForm} onSubmit={handleSubmit}>
       <RVFilterLocation location={location} setLocation={setLocation} />
-      <div>
-        <h3>Filters</h3>
-        <div>
-          <h4>Vehicle equipment</h4>
-          <span></span>
+      <div className={css.filtersContainer}>
+        <h3 className={css.filtersTitle}>Filters</h3>
+        <div className={css.filterSection}>
+          <h4 className={css.filtersSectionTitle}>Vehicle equipment</h4>
+          <span className={css.filtersSectionLine}></span>
           <div>
             <RVFilterEquipment
               label="AC"
@@ -93,9 +95,9 @@ const CatalogSidebar = () => {
             />
           </div>
         </div>
-        <div>
-          <h4>Vehicle equipment</h4>
-          <span></span>
+        <div  className={css.filterSection}>
+          <h4  className={css.filtersSectionTitle}>Vehicle type</h4>
+          <span className={css.filtersSectionLine}></span>
           <div>
             <RVFilterVehicleType
               label="Van"
