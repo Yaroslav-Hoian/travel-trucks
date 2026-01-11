@@ -15,14 +15,15 @@ const CatalogClient = () => {
     page,
     limit,
     filters,
+    total,
     setRVs,
     addRVs,
     nextPage,
-    total,
     resetFilters,
     addToFavorites,
     removeFromFavorites,
     isFavorite,
+    setFilters,
   } = useRVDraftStore();
 
   const filtersKey = JSON.stringify(filters);
@@ -63,7 +64,7 @@ const CatalogClient = () => {
   const loadMore = rv.length < total;
   return (
     <section className={css.catalogClientContainer}>
-      <RVFilter />
+      <RVFilter setFilters={setFilters} />
       <div className={css.catalogClientSubContent}>
         {rv.length > 0 && (
           <RVList

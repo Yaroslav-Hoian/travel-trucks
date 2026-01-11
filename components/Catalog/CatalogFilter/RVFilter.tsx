@@ -6,8 +6,7 @@ import { useState } from "react";
 import RVFilterLocation from "@/components/Catalog/CatalogFilter/RVFilterLocation/RVFilterLocation";
 import RVFilterEquipment from "@/components/Catalog/CatalogFilter/RVFilterEquipments/RVFilterEquipments";
 import RVFilterVehicleType from "@/components/Catalog/CatalogFilter/RVFilterVehicleType/RVFilterVehicleType";
-import { RVForm } from "@/types/RV";
-import { useRVDraftStore } from "@/lib/store/RVStore";
+import { RVFilterParams, RVForm } from "@/types/RV";
 
 interface EquipmentFilters {
   AC?: boolean;
@@ -19,9 +18,11 @@ interface EquipmentFilters {
   microwave?: boolean;
 }
 
-const CatalogFilter = () => {
-  const setFilters = useRVDraftStore((state) => state.setFilters);
+interface CatalogFilterProps {
+  setFilters: (filters: RVFilterParams) => void;
+}
 
+const RVFilter = ({ setFilters }: CatalogFilterProps) => {
   const [location, setLocation] = useState<string>("");
   const [filters, setLocalFilters] = useState<EquipmentFilters>({});
   const [vehicleType, setVehicleType] = useState<RVForm | null>(null);
@@ -139,4 +140,4 @@ const CatalogFilter = () => {
   );
 };
 
-export default CatalogFilter;
+export default RVFilter;

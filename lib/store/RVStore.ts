@@ -9,8 +9,6 @@ interface RVStoreState {
   limit: number;
   filters: RVFilterParams;
   favorites: RV[];
-  isLoading: boolean;
-  error: string | null;
   setRVs: (rv: RV[], total: number) => void;
   addRVs: (rv: RV[]) => void;
   setFilters: (filters: RVFilterParams) => void;
@@ -30,8 +28,6 @@ export const useRVDraftStore = create<RVStoreState>()(
       limit: 4,
       filters: {},
       favorites: [],
-      isLoading: false,
-      error: null,
       setRVs: (rv, total) => set({ rv, total }),
       addRVs: (rv) => set((state) => ({ rv: [...state.rv, ...rv] })),
       setFilters: (filters) =>
