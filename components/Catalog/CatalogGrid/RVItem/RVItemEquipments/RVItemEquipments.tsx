@@ -1,4 +1,4 @@
-import IconJust from "@/components/icons/IconJust";
+import IconJust from "@/components/utils/IconJust";
 import { RVItemProps } from "../RVItem";
 import css from "./RVItemEquipments.module.css";
 

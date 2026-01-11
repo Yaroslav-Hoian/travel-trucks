@@ -21,6 +21,16 @@
   height: 60px;
   border-radius: 60px;
   background-color: var(--badges);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.firstLater {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--button);
 }
 
 .reviewerInfo {
@@ -32,6 +42,14 @@
 .reviewName {
   font-weight: 500;
   line-height: 1.5;
+}
+
+.starEmpty {
+  fill: var(--badges);
+}
+
+.starFilled {
+  fill: var(--rating);
 }
 
 .reviewItemText {

@@ -10,8 +10,11 @@ import CamperIdDescription from "@/components/CamperId/CamperIdInfo/CamperIdDesc
 import CamperIdBooking from "@/components/CamperId/CamperIdBooking/CamperIdBooking";
 import CamperIdFeatures from "@/components/CamperId/CamperIdFeatures/CamperIdFeatures";
 import CamperIdReviews from "@/components/CamperId/CamperIdReviews/CamperIdReviews";
+import { useState } from "react";
 
 const CamperIdClient = () => {
+  const [active, setActive] = useState<"features" | "reviews">("features");
+
   const { id } = useParams<{ id: string }>();
 
   const {
@@ -40,14 +43,33 @@ const CamperIdClient = () => {
       </div>
       <div className={css.camperIdToggleBox}>
         <div className={css.camperIdToggle}>
-          <button className={css.camperToggleBtn}>Features</button>
-          <button className={css.camperToggleBtn}>Reviews</button>
+          <button
+            type="button"
+            onClick={() => setActive("features")}
+            className={`${css.camperToggleBtn} ${
+              active === "features" ? css.active : ""
+            }`}
+          >
+            Features
+          </button>
+          <button
+            type="button"
+            onClick={() => setActive("reviews")}
+            className={`${css.camperToggleBtn} ${
+              active === "reviews" ? css.active : ""
+            }`}
+          >
+            Reviews
+          </button>
         </div>
         <span className={css.camperIdToggleLine}></span>
       </div>
       <div className={css.camperIdToggleBookingContent}>
-        {/* <CamperIdFeatures rv={rv} /> */}
-        <CamperIdReviews rv={rv} />
+        {active === "features" ? (
+          <CamperIdFeatures rv={rv} />
+        ) : (
+          <CamperIdReviews rv={rv} />
+        )}
         <CamperIdBooking />
       </div>
     </section>

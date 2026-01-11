@@ -1,4 +1,29 @@
 import css from "./CamperIdBooking.module.css";
+import * as Yup from "yup";
+
+interface CamperFormValuesProps {
+  name: string;
+  email: string;
+  bookingDate: string;
+  comment: string;
+}
+
+const initialFormValues: CamperFormValuesProps = {
+  name: "",
+  email: "",
+  bookingDate: "",
+  comment: "",
+};
+
+const CampersFormShema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, "Name must be at least 3 characters")
+    .max(25, "Name is too long")
+    .required("Name is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  bookingDate: Yup.string().required("Booking date is required"),
+  comment: Yup.string().max(400, "Comment is too long"),
+});
 
 const CamperIdBooking = () => {
   return (

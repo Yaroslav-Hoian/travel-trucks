@@ -35,6 +35,15 @@ const CatalogFilter = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (
+      location.trim() === "" &&
+      Object.keys(filters).length === 0 &&
+      !vehicleType
+    ) {
+      return;
+    }
+
     setFilters({
       location,
       ...filters,

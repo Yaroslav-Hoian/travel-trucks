@@ -32,9 +32,12 @@
   position: absolute;
   top: 50%;
   left: 18px;
+  fill: var(--gray);
   transform: translateY(-50%);
+  transition: fill 300ms ease-in-out;
 }
 
-.locationInputContainer:focus-within .locationIcon use {
-  stroke: var(--gray);
+.locationInputContainer:hover .locationIcon,
+.locationInputContainer:focus-within .locationIcon {
+  fill: #101828;
 }

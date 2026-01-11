@@ -1,6 +1,6 @@
 import css from "./RVItemHeader.module.css";
 import { RVItemProps } from "../RVItem";
-import IconJust from "@/components/icons/IconJust";
+import IconJust from "@/components/utils/IconJust";
 
 const RVItemHeader = ({ rv }: RVItemProps) => {
   return (
@@ -10,14 +10,24 @@ const RVItemHeader = ({ rv }: RVItemProps) => {
         <div className={css.rvPriceWrapper}>
           <span className={css.rvPrice}>€{rv.price.toFixed(2)}</span>
           <button className={css.favoriteButton} aria-label="Add to favorites">
-            <IconJust width={24} height={24} icon="Like" />
+            <IconJust
+              width={24}
+              height={24}
+              icon="Like"
+              className={css.favoriteIcon}
+            />
           </button>
         </div>
       </div>
       <div className={css.rvInfoReviewrsLocation}>
         <div className={css.rvInfoReviewrsLocationWrapper}>
-          <IconJust width={16} height={16} icon="Star-Fully" />
-          <p className={css.rvInfoReviewrsLocationText}>
+          <IconJust
+            width={16}
+            height={16}
+            icon="Star"
+            className={css.starFilled}
+          />
+          <p className={`${css.rvInfoReviewrsLocationText} ${css.underline}`}>
             {rv.rating} ({rv.reviews.length} Reviews)
           </p>
         </div>

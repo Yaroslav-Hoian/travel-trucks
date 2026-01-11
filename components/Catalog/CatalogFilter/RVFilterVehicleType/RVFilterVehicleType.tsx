@@ -1,7 +1,7 @@
 import css from "../RVFilterEquipments/RVFilterEquipments.module.css";
 import clsx from "clsx";
 import { RVForm } from "@/types/RV";
-import IconJust from "@/components/icons/IconJust";
+import IconJust from "@/components/utils/IconJust";
 
 interface RVFilterVehicleTypeProps {
   label: string;

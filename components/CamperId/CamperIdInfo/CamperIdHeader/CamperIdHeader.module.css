@@ -31,8 +31,26 @@
   line-height: 1.5;
 }
 
+.underline {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
 .rvPrice {
   font-weight: 600;
   font-size: 24px;
   line-height: 1.33;
+}
+
+.favoriteIcon {
+  fill: var(--main);
+}
+
+.favoriteIcon:hover,
+.favoriteIcon:focus {
+  fill: var(--button);
+}
+
+.starFilled {
+  fill: var(--rating);
 }

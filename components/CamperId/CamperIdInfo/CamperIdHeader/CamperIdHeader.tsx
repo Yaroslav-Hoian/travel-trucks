@@ -1,6 +1,6 @@
 import { RVItemProps } from "@/components/Catalog/CatalogGrid/RVItem/RVItem";
 import css from "./CamperIdHeader.module.css";
-import IconJust from "@/components/icons/IconJust";
+import IconJust from "@/components/utils/IconJust";
 
 const CamperIdHeader = ({ rv }: RVItemProps) => {
   return (
@@ -9,8 +9,13 @@ const CamperIdHeader = ({ rv }: RVItemProps) => {
       <div className={css.rvInfoHeaderDetails}>
         <div className={css.rvInfoReviewrsLocation}>
           <div className={css.rvInfoReviewrsLocationWrapper}>
-            <IconJust width={16} height={16} icon="Star-Fully" />
-            <p className={css.rvInfoReviewrsLocationText}>
+            <IconJust
+              width={16}
+              height={16}
+              icon="Star"
+              className={css.starFilled}
+            />
+            <p className={`${css.rvInfoReviewrsLocationText} ${css.underline}`}>
               {rv.rating} ({rv.reviews.length} Reviews)
             </p>
           </div>
