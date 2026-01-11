@@ -22,7 +22,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${rv.name}`,
       description: `${rv.description}`,
-      url: `https://08-zustand-orcin-five.vercel.app/notes/${id}`,
+      url: `https://travel-trucks-virid-theta.vercel.app/catalog/${id}`,
       images: [
         {
           url: "/images/homePage/Picture-1x.png",

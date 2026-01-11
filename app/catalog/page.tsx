@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Catalog - Travel Trucks",
     description:
       "Browse our camper van catalog and find the perfect RV for your next adventure. Filter by location, vehicle type, and equipment to choose the best option for your travel needs.",
-    url: "https://08-zustand-orcin-five.vercel.app/not-found",
+    url: "https://travel-trucks-virid-theta.vercel.app/catalog",
     images: [
       {
         url: "/images/homePage/Picture-1x.png",
