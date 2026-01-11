@@ -14,13 +14,11 @@ interface RVStoreState {
   setRVs: (rv: RV[], total: number) => void;
   addRVs: (rv: RV[]) => void;
   setFilters: (filters: RVFilterParams) => void;
-  resetRVs: () => void;
+  resetFilters: () => void;
   nextPage: () => void;
   addToFavorites: (rv: RV) => void;
   removeFromFavorites: (id: string) => void;
   isFavorite: (id: string) => boolean;
-  setLoading: (value: boolean) => void;
-  setError: (message: string | null) => void;
 }
 
 export const useRVDraftStore = create<RVStoreState>()(
@@ -42,7 +40,7 @@ export const useRVDraftStore = create<RVStoreState>()(
           page: 1,
           total: 0,
         }),
-      resetRVs: () => set({ rv: [], total: 0 }),
+      resetFilters: () => set({ filters: {}, page: 1, total: 0 }),
       nextPage: () => set((state) => ({ page: state.page + 1 })),
       addToFavorites: (rv) =>
         set((state) => ({ favorites: [...state.favorites, rv] })),
@@ -51,8 +49,6 @@ export const useRVDraftStore = create<RVStoreState>()(
           favorites: state.favorites.filter((rv) => rv.id !== id),
         })),
       isFavorite: (id) => get().favorites.some((rv) => rv.id === id),
-      setLoading: (value) => set({ isLoading: value }),
-      setError: (message) => set({ error: message }),
     }),
     {
       name: "rv-draft-storage",

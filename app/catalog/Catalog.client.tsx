@@ -19,12 +19,17 @@ const CatalogClient = () => {
     addRVs,
     nextPage,
     total,
+    resetFilters,
     addToFavorites,
     removeFromFavorites,
     isFavorite,
   } = useRVDraftStore();
 
   const filtersKey = JSON.stringify(filters);
+
+  useEffect(() => {
+    resetFilters();
+  }, [resetFilters]);
 
   const { data, isLoading, error, isPlaceholderData } = useQuery({
     queryKey: ["campers", page, filtersKey],
