@@ -47,7 +47,7 @@ const CamperIdBooking = () => {
 
   return (
     <div className={css.booking}>
-      <Toaster />
+      <Toaster toastOptions={{ duration: 4500 }} />
       <div className={css.bookingContainer}>
         <h3 className={css.bookingTitle}>Book your campervan now</h3>
         <p className={css.bookingText}>

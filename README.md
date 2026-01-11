@@ -45,3 +45,57 @@ Accessible components
 Smooth user interactions
 
 Clean, minimal design
+
+🔍 Core Features
+🗂 Camper Catalog
+
+Paginated camper list
+
+Server-side prefetching with hydration
+
+Optimized rendering using React Query
+
+🎛 Advanced Filters
+
+Location search
+
+Vehicle type selection
+
+Equipment filtering (AC, kitchen, bathroom, etc.)
+
+Filters send only selected values (no false noise)
+
+📄 Camper Details Page
+
+Image gallery
+
+Specifications
+
+Features & reviews toggle
+
+📅 Booking Form
+
+Date range picker
+
+Form validation
+
+UX-friendly error handling
+
+🧠 Smart Architecture Decisions
+
+✔ Server-side data prefetching
+✔ Hydration with React Query
+✔ Separation of client/server logic
+✔ Typed filters & API responses
+
+💡 Author Notes
+
+This project focuses on:
+
+Clean code
+
+Readable logic
+
+Real-world patterns
+
+Built not just to work — but to scale.
