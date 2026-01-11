@@ -36,6 +36,14 @@
   padding: 2px;
 }
 
+.favoriteIcon {
+  fill: var(--main);
+}
+
+.active {
+  fill: var(--button);
+}
+
 .rvInfoReviewrsLocation {
   display: flex;
   gap: 16px;

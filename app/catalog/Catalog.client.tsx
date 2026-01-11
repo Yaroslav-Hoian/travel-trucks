@@ -10,8 +10,19 @@ import Loading from "../loading";
 import RVFilter from "@/components/Catalog/CatalogFilter/RVFilter";
 
 const CatalogClient = () => {
-  const { rv, page, limit, filters, setRVs, addRVs, nextPage, total } =
-    useRVDraftStore();
+  const {
+    rv,
+    page,
+    limit,
+    filters,
+    setRVs,
+    addRVs,
+    nextPage,
+    total,
+    addToFavorites,
+    removeFromFavorites,
+    isFavorite,
+  } = useRVDraftStore();
 
   const filtersKey = JSON.stringify(filters);
 
@@ -23,7 +34,7 @@ const CatalogClient = () => {
         limit,
         ...filters,
       }),
-    placeholderData: keepPreviousData
+    placeholderData: keepPreviousData,
   });
 
   useEffect(() => {
@@ -49,7 +60,14 @@ const CatalogClient = () => {
     <section className={css.catalogClientContainer}>
       <RVFilter />
       <div className={css.catalogClientSubContent}>
-        {rv.length > 0 && <RVList items={rv} />}
+        {rv.length > 0 && (
+          <RVList
+            items={rv}
+            onAddToFavorites={addToFavorites}
+            onRemoveFromFavorites={removeFromFavorites}
+            isFavorite={isFavorite}
+          />
+        )}
         {loadMore && (
           <button
             type="button"

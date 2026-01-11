@@ -8,7 +8,7 @@ const RVItemEquipments = ({ rv }: RVItemProps) => {
       key: "AC",
       label: "AC",
       value: rv.AC,
-      icon: <IconJust width={20} height={20} icon="AC" />,
+      icon: <IconJust width={20} height={20} icon="AC" className={css.icon} />,
     },
     {
       key: "bathroom",

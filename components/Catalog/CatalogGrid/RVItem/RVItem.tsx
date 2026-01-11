@@ -10,7 +10,18 @@ export interface RVItemProps {
   rv: RV;
 }
 
-const RVItem = ({ rv }: RVItemProps) => {
+export interface RVFavoriteProps extends RVItemProps {
+  onAddToFavorites: (rv: RV) => void;
+  onRemoveFromFavorites: (id: string) => void;
+  isFavorite: (id: string) => boolean;
+}
+
+const RVItem = ({
+  rv,
+  onAddToFavorites,
+  onRemoveFromFavorites,
+  isFavorite,
+}: RVFavoriteProps) => {
   return (
     <li className={css.rvItem}>
       <div className={css.rvImageWrapper}>
@@ -23,7 +34,12 @@ const RVItem = ({ rv }: RVItemProps) => {
         />
       </div>
       <div className={css.rvInfo}>
-        <RVItemHeader rv={rv} />
+        <RVItemHeader
+          rv={rv}
+          onAddToFavorites={onAddToFavorites}
+          onRemoveFromFavorites={onRemoveFromFavorites}
+          isFavorite={isFavorite}
+        />
         <RVItemDescription rv={rv} />
         <RVItemEquipments rv={rv} />
         <button className={css.rvItemBtn}>
