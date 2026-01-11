@@ -25,7 +25,7 @@ export async function generateMetadata({
       url: `https://travel-trucks-virid-theta.vercel.app/catalog/${id}`,
       images: [
         {
-          url: "/images/homePage/Picture-1x.png",
+          url: `${rv.gallery[0].thumb}`,
           width: 1200,
           height: 630,
           alt: `${rv.name}`,
