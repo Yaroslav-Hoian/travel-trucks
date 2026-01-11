@@ -1,7 +1,7 @@
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import css from "./CamperIdBooking.module.css";
 import * as Yup from "yup";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { clsx } from "clsx";
@@ -47,7 +47,6 @@ const CamperIdBooking = () => {
 
   return (
     <div className={css.booking}>
-      <Toaster toastOptions={{ duration: 4500 }} />
       <div className={css.bookingContainer}>
         <h3 className={css.bookingTitle}>Book your campervan now</h3>
         <p className={css.bookingText}>

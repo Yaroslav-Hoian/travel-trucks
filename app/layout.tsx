@@ -4,6 +4,7 @@ import "./globals.css";
 import "modern-normalize/modern-normalize.css";
 import Header from "@/components/Header/Header";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -41,6 +42,7 @@ export default function RootLayout({
       <body className={`${inter.variable}`}>
         <TanStackProvider>
           <Header />
+          <Toaster toastOptions={{ duration: 3500 }} />
           <main>{children}</main>
         </TanStackProvider>
       </body>

@@ -2,6 +2,7 @@ import css from "./RVItemHeader.module.css";
 import { RVFavoriteProps } from "../RVItem";
 import IconJust from "@/components/utils/IconJust";
 import clsx from "clsx";
+import toast from "react-hot-toast";
 
 const RVItemHeader = ({
   rv,
@@ -13,8 +14,10 @@ const RVItemHeader = ({
   const handleToggleFavorite = () => {
     if (favorite) {
       onRemoveFromFavorites(rv.id);
+      toast.success("Camper remove from favorite");
     } else {
       onAddToFavorites(rv);
+      toast.success("Camper add to favorite");
     }
   };
   return (
