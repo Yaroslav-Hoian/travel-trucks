@@ -40,7 +40,6 @@ export const useRVDraftStore = create<RVStoreState>()(
         set({
           filters,
           page: 1,
-          rv: [],
           total: 0,
         }),
       resetRVs: () => set({ rv: [], total: 0 }),
