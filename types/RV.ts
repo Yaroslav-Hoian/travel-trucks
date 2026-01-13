@@ -11,6 +11,10 @@ export interface ReviewsRV {
 
 export type RVForm = "panelTruck" | "fullyIntegrated" | "alcove";
 
+export type RVTransmission = "automatic" | "manual";
+
+export type RVEngine = "diesel" | "petrol" | "hybrid";
+
 export interface RV {
   id: string;
   name: string;
@@ -24,8 +28,8 @@ export interface RV {
   height: string;
   tank: string;
   consumption: string;
-  transmission: string;
-  engine: string;
+  transmission: RVTransmission;
+  engine: RVEngine;
   AC: boolean;
   bathroom: boolean;
   kitchen: boolean;
@@ -43,6 +47,8 @@ export interface RVFilterParams {
   page?: number;
   limit?: number;
   location?: string;
+  transmission?: RVTransmission;
+  engine?: RVEngine;
   form?: RVForm;
   AC?: boolean;
   bathroom?: boolean;
@@ -51,6 +57,8 @@ export interface RVFilterParams {
   radio?: boolean;
   refrigerator?: boolean;
   microwave?: boolean;
+  water?: boolean;
+  gas?: boolean;
 }
 
 export interface IconProps {
@@ -58,4 +66,9 @@ export interface IconProps {
   height: number;
   icon: string;
   className?: string;
+}
+
+export interface RVFilterItemProps {
+  filters: RVFilterParams;
+  setFilters: (filters: RVFilterParams) => void;
 }

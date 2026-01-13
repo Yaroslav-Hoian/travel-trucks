@@ -5,20 +5,18 @@ import { fetchRV } from "@/lib/api";
 import { useRVDraftStore } from "@/lib/store/RVStore";
 import css from "./Catalog.client.module.css";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Loading from "../loading";
 import RVFilter from "@/components/Catalog/CatalogFilter/RVFilter";
 
 const CatalogClient = () => {
   const {
     rv,
-    page,
     limit,
     filters,
     total,
     setRVs,
     addRVs,
-    nextPage,
     resetFilters,
     addToFavorites,
     removeFromFavorites,
@@ -27,6 +25,7 @@ const CatalogClient = () => {
   } = useRVDraftStore();
 
   const filtersKey = JSON.stringify(filters);
+  const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
     resetFilters();
@@ -53,6 +52,12 @@ const CatalogClient = () => {
     }
   }, [data, page, setRVs, addRVs, isPlaceholderData]);
 
+  const handleReset = () => {
+    if (!filters || Object.keys(filters).length === 0) return;
+    resetFilters();
+    setPage(1);
+  };
+
   if (isLoading) {
     return <Loading />;
   }
@@ -64,7 +69,11 @@ const CatalogClient = () => {
   const loadMore = rv.length < total;
   return (
     <section className={css.catalogClientContainer}>
-      <RVFilter setFilters={setFilters} />
+      <RVFilter
+        setFilters={setFilters}
+        filters={filters}
+        onReset={handleReset}
+      />
       <div className={css.catalogClientSubContent}>
         {rv.length > 0 && (
           <RVList
@@ -78,7 +87,7 @@ const CatalogClient = () => {
           <button
             type="button"
             className={css.loadMoreBtn}
-            onClick={nextPage}
+            onClick={() => setPage((p) => p + 1)}
             disabled={isLoading}
           >
             {isLoading ? "Loading..." : "Load More"}

@@ -5,7 +5,6 @@ import { persist } from "zustand/middleware";
 interface RVStoreState {
   rv: RV[];
   total: number;
-  page: number;
   limit: number;
   filters: RVFilterParams;
   favorites: RV[];
@@ -13,7 +12,6 @@ interface RVStoreState {
   addRVs: (rv: RV[]) => void;
   setFilters: (filters: RVFilterParams) => void;
   resetFilters: () => void;
-  nextPage: () => void;
   addToFavorites: (rv: RV) => void;
   removeFromFavorites: (id: string) => void;
   isFavorite: (id: string) => boolean;
@@ -24,7 +22,6 @@ export const useRVDraftStore = create<RVStoreState>()(
     (set, get) => ({
       rv: [],
       total: 0,
-      page: 1,
       limit: 4,
       filters: {},
       favorites: [],
@@ -33,11 +30,9 @@ export const useRVDraftStore = create<RVStoreState>()(
       setFilters: (filters) =>
         set({
           filters,
-          page: 1,
           total: 0,
         }),
-      resetFilters: () => set({ filters: {}, page: 1, total: 0 }),
-      nextPage: () => set((state) => ({ page: state.page + 1 })),
+      resetFilters: () => set({ filters: {}, rv: [], total: 0 }),
       addToFavorites: (rv) =>
         set((state) => ({ favorites: [...state.favorites, rv] })),
       removeFromFavorites: (id) =>

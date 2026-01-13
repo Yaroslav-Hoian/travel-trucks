@@ -1,12 +1,8 @@
 import IconJust from "@/components/utils/IconJust";
 import css from "./RVFilterLocation.module.css";
+import { RVFilterItemProps } from "@/types/RV";
 
-interface RVFilterLocationProps {
-  location: string;
-  setLocation: (location: string) => void;
-}
-
-const RVFilterLocation = ({ location, setLocation }: RVFilterLocationProps) => {
+const RVFilterLocation = ({ filters, setFilters }: RVFilterItemProps) => {
   return (
     <div className={css.locationContainer}>
       <label htmlFor="location" className={css.locationLabel}>
@@ -18,9 +14,9 @@ const RVFilterLocation = ({ location, setLocation }: RVFilterLocationProps) => {
           name="location"
           className={css.locationInput}
           type="text"
-          value={location}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setLocation(e.target.value)
+          value={filters.location || ""}
+          onChange={(e) =>
+            setFilters({ ...filters, location: e.target.value.trim() })
           }
           placeholder="City"
         />

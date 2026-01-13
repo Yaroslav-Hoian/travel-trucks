@@ -2,140 +2,74 @@
 
 import css from "./RVFilter.module.css";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RVFilterLocation from "@/components/Catalog/CatalogFilter/RVFilterLocation/RVFilterLocation";
 import RVFilterEquipment from "@/components/Catalog/CatalogFilter/RVFilterEquipments/RVFilterEquipments";
 import RVFilterVehicleType from "@/components/Catalog/CatalogFilter/RVFilterVehicleType/RVFilterVehicleType";
-import { RVFilterParams, RVForm } from "@/types/RV";
+import { RVFilterParams } from "@/types/RV";
+import RVFilterTransmission from "./RVFilterTransmission/RVFilterTransmission";
+import RVFilterEngine from "./RVFilterEngine/RVFilterEngine";
 
-interface EquipmentFilters {
-  AC?: boolean;
-  kitchen?: boolean;
-  bathroom?: boolean;
-  TV?: boolean;
-  radio?: boolean;
-  refrigerator?: boolean;
-  microwave?: boolean;
-}
-
-interface CatalogFilterProps {
+interface RVFilterProps {
+  filters: RVFilterParams;
   setFilters: (filters: RVFilterParams) => void;
+  onReset: () => void;
 }
 
-const RVFilter = ({ setFilters }: CatalogFilterProps) => {
-  const [location, setLocation] = useState<string>("");
-  const [filters, setLocalFilters] = useState<EquipmentFilters>({});
-  const [vehicleType, setVehicleType] = useState<RVForm | null>(null);
+const RVFilter = ({ filters, setFilters, onReset }: RVFilterProps) => {
+  const [localFilters, setLocalFilters] = useState<RVFilterParams>({});
 
-  const toggleFilter = (key: keyof EquipmentFilters) => {
-    setLocalFilters((prev) => ({
-      ...prev,
-      [key]: prev[key] ? undefined : true,
-    }));
-  };
+  useEffect(() => {
+    setLocalFilters(filters);
+  }, [filters]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (
-      location.trim() === "" &&
-      Object.keys(filters).length === 0 &&
-      !vehicleType
-    ) {
+    const hasFilters = Object.keys(localFilters).length === 0;
+
+    if (hasFilters) {
       return;
     }
+    setFilters(localFilters);
+  };
 
-    setFilters({
-      location,
-      ...filters,
-      form: vehicleType ?? undefined,
-    });
+  const handleResetLocal = () => {
+    setLocalFilters({});
+    onReset();
   };
 
   return (
     <form className={css.sidebarForm} onSubmit={handleSubmit}>
-      <RVFilterLocation location={location} setLocation={setLocation} />
+      <RVFilterLocation filters={localFilters} setFilters={setLocalFilters} />
       <div className={css.filtersContainer}>
         <h3 className={css.filtersTitle}>Filters</h3>
-        <div className={css.filterSection}>
-          <h4 className={css.filtersSectionTitle}>Vehicle equipment</h4>
-          <span className={css.filtersSectionLine}></span>
-          <div className={css.filterSectionWrapper}>
-            <RVFilterEquipment
-              label="AC"
-              icon="AC"
-              checked={!!filters.AC}
-              onChange={() => toggleFilter("AC")}
-            />
-            <RVFilterEquipment
-              label="Kitchen"
-              icon="Kitchen"
-              checked={!!filters.kitchen}
-              onChange={() => toggleFilter("kitchen")}
-            />
-            <RVFilterEquipment
-              label="Bathroom"
-              icon="Bathroom"
-              checked={!!filters.bathroom}
-              onChange={() => toggleFilter("bathroom")}
-            />
-            <RVFilterEquipment
-              label="TV"
-              icon="TV"
-              checked={!!filters.TV}
-              onChange={() => toggleFilter("TV")}
-            />
-            <RVFilterEquipment
-              label="Radio"
-              icon="Radio"
-              checked={!!filters.radio}
-              onChange={() => toggleFilter("radio")}
-            />
-            <RVFilterEquipment
-              label="Refrigerator"
-              icon="Refrigerator"
-              checked={!!filters.refrigerator}
-              onChange={() => toggleFilter("refrigerator")}
-            />
-            <RVFilterEquipment
-              label="Microwave"
-              icon="Microwave"
-              checked={!!filters.microwave}
-              onChange={() => toggleFilter("microwave")}
-            />
-          </div>
-        </div>
-        <div className={css.filterSection}>
-          <h4 className={css.filtersSectionTitle}>Vehicle type</h4>
-          <span className={css.filtersSectionLine}></span>
-          <div className={css.filterSectionWrapper}>
-            <RVFilterVehicleType
-              label="Van"
-              icon="Van"
-              value="panelTruck"
-              selected={vehicleType}
-              onSelect={setVehicleType}
-            />
-            <RVFilterVehicleType
-              label="Fully Integrated"
-              icon="Fully-Integrated"
-              value="fullyIntegrated"
-              selected={vehicleType}
-              onSelect={setVehicleType}
-            />
-            <RVFilterVehicleType
-              label="Alcove"
-              icon="Alcove"
-              value="alcove"
-              selected={vehicleType}
-              onSelect={setVehicleType}
-            />
-          </div>
-        </div>
+        <RVFilterTransmission
+          filters={localFilters}
+          setFilters={setLocalFilters}
+        />
+        <RVFilterEquipment
+          filters={localFilters}
+          setFilters={setLocalFilters}
+        />
+        <RVFilterEngine filters={localFilters} setFilters={setLocalFilters} />
+        <RVFilterVehicleType
+          filters={localFilters}
+          setFilters={setLocalFilters}
+        />
       </div>
-      <button className={css.searchBtn} type="submit">
-        Search
-      </button>
+      <div className={css.formBtnBox}>
+        <button type="submit" className={css.formBtnSubmit}>
+          Search
+        </button>
+        <button
+          type="button"
+          onClick={handleResetLocal}
+          className={css.formBtnReset}
+        >
+          Reset
+        </button>
+      </div>
     </form>
   );
 };

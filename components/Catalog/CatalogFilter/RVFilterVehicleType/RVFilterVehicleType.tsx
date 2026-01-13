@@ -1,34 +1,47 @@
-import css from "../RVFilterEquipments/RVFilterEquipments.module.css";
+import { RVFilterParams, RVForm } from "@/types/RV";
+import css from "./RVFilterVehicleType.module.css";
 import clsx from "clsx";
-import { RVForm } from "@/types/RV";
 import IconJust from "@/components/utils/IconJust";
 
-interface RVFilterVehicleTypeProps {
-  label: string;
-  icon: string;
-  value: RVForm;
-  selected: RVForm | null;
-  onSelect: (value: RVForm) => void;
+export interface RVFilterVehicleTypeProps {
+  filters: RVFilterParams;
+  setFilters: (filters: RVFilterParams) => void;
 }
 
 const RVFilterVehicleType = ({
-  label,
-  icon,
-  value,
-  selected,
-  onSelect,
+  filters,
+  setFilters,
 }: RVFilterVehicleTypeProps) => {
-  const isActive = selected === value;
+  const options = [
+    { value: "panelTruck", label: "Van", icon: "Van" },
+    {
+      value: "fullyIntegrated",
+      label: "Fully Integrated",
+      icon: "Fully-Integrated",
+    },
+    { value: "alcove", label: "Alcove", icon: "Alcove" },
+  ];
+
   return (
-    <button
-      type="button"
-      className={clsx(css.btn, isActive && css.active)}
-      onClick={() => onSelect(value)}
-      aria-pressed={isActive}
-    >
-      <IconJust width={32} height={32} icon={icon} />
-      <p className={css.text}>{label}</p>
-    </button>
+    <div className={css.vehicleTypeBox}>
+      <h3 className={css.vehicleTypeTitle}>Vehicle type</h3>
+      <div className={css.vehicleTypeLine}></div>
+      <ul className={css.vehicleTypeList}>
+        {options.map(({ value, label, icon }) => (
+          <li
+            key={value}
+            className={clsx(
+              css.vehicleTypeItem,
+              filters.form === value && css.vehicleTypeItemActive,
+            )}
+            onClick={() => setFilters({ ...filters, form: value as RVForm })}
+          >
+            <IconJust width={32} height={32} icon={icon} />
+            <span>{label}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

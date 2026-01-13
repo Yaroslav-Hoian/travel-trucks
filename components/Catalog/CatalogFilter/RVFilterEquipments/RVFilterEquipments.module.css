@@ -1,24 +1,44 @@
-.btn {
+.equipmentFiltersBox {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 360px;
+}
+
+.equipmentFiltersTitle {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.equipmentFiltersLine {
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.equipmentFiltersList {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 12px;
+}
+
+.equipmentFiltersItem {
+  cursor: pointer;
   display: flex;
   gap: 8px;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  background-color: transparent;
-  min-width: 112px;
-  min-height: 96px;
+  align-items: center;
   border: 1px solid var(--gray-light);
   border-radius: 12px;
-}
-
-.active {
-  border-color: var(--button);
-}
-
-.text {
+  width: 112px;
+  height: 96px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: -0.01em;
-  max-width: 80px;
+  transition: border-color 300ms ease-in-out;
+}
+
+.equipmentFiltersItemActive {
+  border-color: var(--button);
 }
